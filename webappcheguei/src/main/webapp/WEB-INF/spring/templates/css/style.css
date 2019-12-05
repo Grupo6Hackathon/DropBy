@@ -1,0 +1,54 @@
+#textbox {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+input[type="text"] {
+    border: none;
+    background-color: #F2F2F2;
+    width: 80%;
+    padding: 1rem;
+}
+
+input[type="password"] {
+    border: none;
+    background-color: #F2F2F2;
+    width: 80%;
+    padding: 1rem;
+}
+
+input[type="submit"] {
+    text-align: center;
+    border:none;
+    background-color: #2ac92a;
+    width: 80%;
+    padding: 1rem;
+}
+
+.notRegistered {
+    color:#b8fcb8;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: green;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.title {
+    padding: 1rem 0;
+
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #F2F2F2 inset !important;
+}

@@ -55,7 +55,7 @@ public class RestUserController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET, path = "{/id}")
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public ResponseEntity<UserDto> showUser(@PathVariable Integer id){
 
         User user = userService.getUser(id);

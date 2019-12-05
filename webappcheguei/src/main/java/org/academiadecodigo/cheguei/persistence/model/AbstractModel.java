@@ -27,15 +27,41 @@ public class AbstractModel implements Model{
         return this.id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getVersion() {
         return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public Date getCreationTime() {
         return creationTime;
     }
 
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
+    }
+
     public Date getUpdateTime() {
         return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractModel{" +
+                "id=" + id +
+                ", version=" + version +
+                ", creationTime=" + creationTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

@@ -1,0 +1,16 @@
+body {
+    background-color: lightgreen;
+}
+section {
+    background-color: white;
+    width: 40%;
+    margin: auto;
+    font-family: sans-serif;
+    box-shadow: 2px 2px 8px 2px #888888;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "footerLeft footerRight";
+}
