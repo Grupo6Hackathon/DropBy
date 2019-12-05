@@ -26,5 +26,6 @@
     </bean>
 
     <import resource="./persistence/mysql.xml"/>
+    <import resource="presentation.xml"/>
 
 </beans>
