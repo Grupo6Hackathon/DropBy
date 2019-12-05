@@ -1,6 +1,6 @@
 package org.academiadecodigo.cheguei.converters;
 
-import org.academiadecodigo.cheguei.commnad.UserDto;
+import org.academiadecodigo.cheguei.command.UserDto;
 import org.academiadecodigo.cheguei.persistence.model.User;
 import org.springframework.core.convert.converter.Converter;
 
