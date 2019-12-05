@@ -2,6 +2,7 @@ package org.academiadecodigo.cheguei.persistence.dao.jpa;
 
 import org.academiadecodigo.cheguei.persistence.dao.Dao;
 import org.academiadecodigo.cheguei.persistence.model.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
