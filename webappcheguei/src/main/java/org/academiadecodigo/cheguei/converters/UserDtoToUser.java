@@ -24,7 +24,9 @@ public class UserDtoToUser implements Converter<UserDto, User> {
     @Override
     public User convert(UserDto userDto) {
 
-        User user = (userDto.getId() != null ? userService.getUser(userDto.getId()) : new User());
+        User user = /*(userDto.getId() != null ? userService.getUser(userDto.getId()) : */new User();/*);*/
+
+        System.out.println(userDto.getFirstName());
 
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());

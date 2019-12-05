@@ -1,11 +1,12 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cssgrid.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/cssgrid.css">
     <title>Register</title>
 </head>
 
@@ -13,20 +14,47 @@
 
 <section>
 
+    <br>
+
+    <div th:if="${lastAction}" class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+        <strong>Action:</strong> <span th:text="${lastAction}">last action performed</span>
+    </div>
+
     <div id="textbox">
         <h3 class="title">Register</h3>
 
-        <form action="register2.html">
+        <form th:object="${user}" th:action="@{/register}" method="post">
 
-            <input type="text" name="lastname" placeholder="username">
+            <input type="text" placeholder="username" th:field="*{username}">
+            <span></span>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
             <br><br>
-            <input type="text" name="lastname" placeholder="password">
+            <input type="password" placeholder="password" th:field="*{password}">
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             <br><br>
-            <input type="text" name="lastname" placeholder="repeat password">
+            <input type="password" placeholder="repeat password" th:field="*{password}">
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             <br><br>
-            <input type="text" name="lastname" placeholder="email">
+            <input type="text" placeholder="email" th:field="*{email}">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             <br><br>
-            <input type="submit" value="Next">
+            <input type="text" placeholder="first name" th:field="*{firstName}">
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+            <br><br>
+            <input type="text" placeholder="last name" th:field="*{lastName}">>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+            <br><br>
+            <input type="text" placeholder="city" th:field="*{city}">>
+            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+            <br><br>
+            <input type="text" placeholder="phone number" th:field="*{phone}">>
+            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="reset" name="action" value="cancel">Reset</button>
+            <a th:href="@{/login/login}">Go Back</a>
+
         </form>
 
     </div>
