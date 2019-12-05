@@ -17,7 +17,7 @@ public abstract class Events extends AbstractModel {
     private String eventTitle;
     private String date;
     private String description;
-    private Integer maximumCapacity;
+    private String maximumCapacity;
 
     public User getUser() {
         return user;
@@ -59,11 +59,11 @@ public abstract class Events extends AbstractModel {
         this.description = description;
     }
 
-    public Integer getMaximumCapacity() {
+    public String getMaximumCapacity() {
         return maximumCapacity;
     }
 
-    public void setMaximumCapacity(Integer maximumCapacity) {
+    public void setMaximumCapacity(String maximumCapacity) {
         this.maximumCapacity = maximumCapacity;
     }
 

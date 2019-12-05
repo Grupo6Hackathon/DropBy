@@ -16,6 +16,7 @@ public class User extends AbstractModel {
     private String username;
     private String email;
     private String password;
+    private String phone;
 
     @OneToMany(cascade = {CascadeType.ALL},
                 orphanRemoval = true,
@@ -71,6 +72,15 @@ public class User extends AbstractModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 
     public List<Events> getEvents() {
         return events;

@@ -1,4 +1,4 @@
 package org.academiadecodigo.cheguei.converters;
 
-public class AbstractConverter {
+public abstract class AbstractConverter {
 }
