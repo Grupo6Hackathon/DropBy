@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -40,8 +42,14 @@ public class WebController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/login")
+    @RequestMapping(method = RequestMethod.GET, path = "/index")
     public String home() {
+        return "index/index";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/login")
+    public String login() {
+
         return "login/login";
     }
 
@@ -57,15 +65,14 @@ public class WebController {
     public String register2(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
 
-
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "register/register";
         }
 
         User user = userService.save(userDtoToUser.convert(userDto));
 
-        redirectAttributes.addFlashAttribute("lastAction", user.getFirstName() + " " + user.getLastName() + " was created with success");
-        return "events/events";
+        redirectAttributes.addFlashAttribute("lastAction", user.getFirstName() + " " + user.getLastName() + " was created with success.");
+        return "redirect:/login";
     }
 
 }

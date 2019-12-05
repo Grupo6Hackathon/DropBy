@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You're welcome to DROPBY!</title>
+    <link rel="stylesheet" href="resources/css/reset.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="icon" type="image/png" href="">
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <header>
+            <div id="headerLeft">
+                <h1>DROPBY</h1>
+            </div>
+            <div id="headerMid"></div>
+            <div id="headerRight">
+                <ul>
+                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/register}">Register</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section>
+            <div id="landing">
+                <div id="landing-hold">
+                    <div id="calling">
+                        <h2>WELCOME TO DROPBY!</h2>
+                        <p>EVERYONE IS CALLING FOR EVERYONE. TIME TO JOIN THEM.</p>
+                    </div>
+                    <div id="join-button">
+                        <a th:href="@{/login}"><h3>JOIN</h3></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hottest">
+                <div id="hottest-wrapper">
+                    <div id="hottest-events">
+                        <div class="event"></div>
+                        <div class="event"></div>
+                        <div class="event"></div>
+                        <div class="event"></div>
+                        <div class="event"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div id="types-wrapper">
+            <div id="types">
+                <div class="type"></div>
+                <div class="type"></div>
+                <div class="type"></div>
+                <div class="type"></div>
+                <div class="type"></div>
+                <div class="type"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="footerLeft">
+                <ul>
+                    <li>About</li>
+                    <li>F.A.Q.</li>
+                    <li>Support</li>
+                    <li>Whatever</li>
+                    <li>Whatever</li>
+                </ul>
+            </div>
+            <div id="footerRight"><small>Copyright 2019 &copy  H A C K A T O N</small></div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html

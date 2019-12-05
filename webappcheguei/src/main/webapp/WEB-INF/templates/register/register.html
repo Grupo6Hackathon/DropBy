@@ -16,15 +16,15 @@
 
     <br>
 
-    <div th:if="${lastAction}" class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+    <div th:if="${lastAction}" role="alert">
+        <button type="button" data-dismiss="alert"><span>&times;</span></button>
         <strong>Action:</strong> <span th:text="${lastAction}">last action performed</span>
     </div>
 
     <div id="textbox">
         <h3 class="title">Register</h3>
 
-        <form th:object="${user}" th:action="@{/register}" method="post">
+        <form th:object="${user}" th:action="@{/index}" method="post">
 
             <input type="text" placeholder="username" th:field="*{username}">
             <span></span>
@@ -33,27 +33,24 @@
             <input type="password" placeholder="password" th:field="*{password}">
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             <br><br>
-            <input type="password" placeholder="repeat password" th:field="*{password}">
-            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-            <br><br>
             <input type="text" placeholder="email" th:field="*{email}">
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             <br><br>
             <input type="text" placeholder="first name" th:field="*{firstName}">
             <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
             <br><br>
-            <input type="text" placeholder="last name" th:field="*{lastName}">>
+            <input type="text" placeholder="last name" th:field="*{lastName}">
             <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
             <br><br>
-            <input type="text" placeholder="city" th:field="*{city}">>
+            <input type="text" placeholder="city" th:field="*{city}">
             <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
             <br><br>
-            <input type="text" placeholder="phone number" th:field="*{phone}">>
+            <input type="text" placeholder="phone number" th:field="*{phone}">
             <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
             <br><br>
             <button type="submit">Submit</button>
             <button type="reset" name="action" value="cancel">Reset</button>
-            <a th:href="@{/login/login}">Go Back</a>
+            <a th:href="@{/login}">Go Back</a>
 
         </form>
 
