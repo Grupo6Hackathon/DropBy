@@ -1,5 +1,6 @@
 package org.academiadecodigo.cheguei.services;
 
+import org.academiadecodigo.cheguei.command.UserDto;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
 import org.academiadecodigo.cheguei.persistence.model.User;
 
@@ -18,4 +19,8 @@ public interface UserService {
     Events addEvent(Integer id, Events event);
 
     void deleteEvent(Integer id, Integer eventId);
+
+    boolean checkPassword(UserDto userDto);
+
+    boolean checkUsername(UserDto userDto);
 }

@@ -12,10 +12,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -48,9 +47,28 @@ public class WebController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("userMock", new UserDto());
 
         return "login/login";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/loginmock")
+    public String login(@ModelAttribute("user") UserDto userDto, HttpSession httpSession) {
+
+        if(userService.checkUsername(userDto) && userService.checkPassword(userDto)) {
+
+            for (User user : userService.list()) {
+                if(user.getUsername().equals(userDto.getUsername())) {
+                    httpSession.setAttribute("user", user);
+                    return "redirect:/index";
+                }
+            }
+
+        }
+
+        System.out.println("USER DOES NOT EXIST!");
+        return "redirect:/login";
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/register")

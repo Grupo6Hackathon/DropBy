@@ -1,5 +1,6 @@
 package org.academiadecodigo.cheguei.persistence.dao;
 
+import org.academiadecodigo.cheguei.command.UserDto;
 import org.academiadecodigo.cheguei.persistence.model.Model;
 
 import java.util.List;
