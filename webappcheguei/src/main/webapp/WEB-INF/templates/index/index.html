@@ -21,8 +21,9 @@
             <div id="headerMid"></div>
             <div id="headerRight">
                 <ul>
-                    <li><a th:href="@{/login}">Login</a></li>
-                    <li><a th:href="@{/register}">Register</a></li>
+                    <li><a th:if="${session.user}" th:text="Welcome + ' ' + ${session.user.username}"></a></li>
+                    <li><a th:unless="${session.user}" th:href="@{/login}">Login</a></li>
+                    <li><a th:unless="${session.user}" th:href="@{/register}">Register</a></li>
                 </ul>
             </div>
         </header>
