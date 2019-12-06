@@ -36,7 +36,8 @@
                         <p>EVERYONE IS CALLING FOR EVERYONE. TIME TO JOIN THEM.</p>
                     </div>
                     <div id="join-button">
-                        <a th:href="@{/login}"><h3>JOIN</h3></a>
+                        <a th:if="${session.user}" th:href="@{/events}"><h3>CREATE EVENT</h3></a>
+                        <a th:unless="${session.user}"  th:href="@{/login}"><h3>JOIN</h3></a>
                     </div>
                 </div>
             </div>
