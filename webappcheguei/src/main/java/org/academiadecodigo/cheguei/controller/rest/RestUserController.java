@@ -44,24 +44,23 @@ public class RestUserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
-    public ResponseEntity<List<UserDto>> listUsers(){
+    public ResponseEntity<List<UserDto>> listUsers() {
 
         List<UserDto> userDtos = new ArrayList<>();
 
-        for(User user : userService.list()){
+        for (User user : userService.list()) {
             userDtos.add(userToUserDto.convert(user));
         }
 
         return new ResponseEntity<>(userDtos, HttpStatus.OK);
     }
 
-
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    public ResponseEntity<UserDto> showUser(@PathVariable Integer id){
+    public ResponseEntity<UserDto> showUser(@PathVariable Integer id) {
 
         User user = userService.getUser(id);
 
-        if(user == null){
+        if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -70,7 +69,7 @@ public class RestUserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/", ""})
-    public ResponseEntity<?> addUser(@Valid @RequestBody UserDto userDto, BindingResult bindingResult, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<?> addUser(@Valid @RequestBody UserDto userDto, BindingResult bindingResult, UriComponentsBuilder uriComponentsBuilder) {
 
         if (bindingResult.hasErrors() || userDto.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -88,9 +87,8 @@ public class RestUserController {
 
     }
 
-
     @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
-    public ResponseEntity<UserDto> deleteUser(@PathVariable Integer id){
+    public ResponseEntity<UserDto> deleteUser(@PathVariable Integer id) {
 
         try {
             userService.delete(id);
@@ -100,6 +98,4 @@ public class RestUserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
 }

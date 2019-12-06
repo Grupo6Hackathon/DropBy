@@ -56,10 +56,10 @@ public class WebController {
     @RequestMapping(method = RequestMethod.GET, path = "/loginmock")
     public String login(@ModelAttribute("user") UserDto userDto, HttpSession httpSession) {
 
-        if(userService.checkUsername(userDto) && userService.checkPassword(userDto)) {
+        if (userService.checkUsername(userDto) && userService.checkPassword(userDto)) {
 
             for (User user : userService.list()) {
-                if(user.getUsername().equals(userDto.getUsername())) {
+                if (user.getUsername().equals(userDto.getUsername())) {
                     httpSession.setAttribute("user", user);
                     return "redirect:/index";
                 }
@@ -92,5 +92,4 @@ public class WebController {
         redirectAttributes.addFlashAttribute("lastAction", user.getFirstName() + " " + user.getLastName() + " was created with success.");
         return "redirect:/login";
     }
-
 }
