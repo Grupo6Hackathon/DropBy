@@ -3,6 +3,7 @@ package org.academiadecodigo.cheguei.controller.rest;
 import org.academiadecodigo.cheguei.command.UserDto;
 import org.academiadecodigo.cheguei.converters.UserDtoToUser;
 import org.academiadecodigo.cheguei.converters.UserToUserDto;
+import org.academiadecodigo.cheguei.exceptions.UserNotFoundException;
 import org.academiadecodigo.cheguei.persistence.model.User;
 import org.academiadecodigo.cheguei.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,10 @@ public class RestUserController {
 
         User user = userService.getUser(id);
 
+        if(user == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         return new ResponseEntity<>(userToUserDto.convert(user), HttpStatus.OK);
 
     }
@@ -87,10 +92,13 @@ public class RestUserController {
     @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
     public ResponseEntity<UserDto> deleteUser(@PathVariable Integer id){
 
-        userService.delete(id);
+        try {
+            userService.delete(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 

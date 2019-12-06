@@ -6,5 +6,4 @@ public interface EventsService {
 
     Events getEvent(Integer id);
 
-
 }
