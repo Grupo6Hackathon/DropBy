@@ -32,8 +32,9 @@ public class UserDto {
     @Size(min = 5, max = 20)
     private String password;
 
+    //@NotBlank(message = "Email is mandatory")
     @Email
-    @NotBlank(message = "Email is mandatory")
+    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", message = "Email is mandatory")
     private String email;
 
     @Pattern(regexp = "^\\+?[0-9]*$", message = "Phone number contains invalid characters")
