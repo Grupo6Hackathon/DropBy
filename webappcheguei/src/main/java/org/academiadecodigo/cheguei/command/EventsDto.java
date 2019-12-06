@@ -12,7 +12,7 @@ public class EventsDto {
 
     @NotNull(message = "Address is mandatory")
     @NotBlank(message = "Address is mandatory")
-    @Size(min = 9)
+    @Size(min = 3)
     private String address;
 
     @NotNull(message = "Event title is mandatory")
