@@ -1,6 +1,8 @@
 package org.academiadecodigo.cheguei.services;
 
 import org.academiadecodigo.cheguei.command.UserDto;
+import org.academiadecodigo.cheguei.exceptions.EventNotFoundException;
+import org.academiadecodigo.cheguei.exceptions.UserNotFoundException;
 import org.academiadecodigo.cheguei.persistence.dao.EventsDao;
 import org.academiadecodigo.cheguei.persistence.dao.UserDao;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
@@ -40,8 +42,12 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void delete(Integer id) {
+    public void delete(Integer id) throws UserNotFoundException {
         User user = userDao.findById(id);
+
+        if(user == null){
+            throw new UserNotFoundException();
+        }
 
         userDao.delete(id);
     }
@@ -84,9 +90,12 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public Events addEvent(Integer id, Events event) {
+    public Events addEvent(Integer id, Events event) throws UserNotFoundException{
 
         User user = userDao.findById(id);
+        if(user == null){
+            throw new UserNotFoundException();
+        }
 
         user.addEvents(event);
         userDao.saveOrUpdate(user);
@@ -96,9 +105,17 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void deleteEvent(Integer id, Integer eventId) {
+    public void deleteEvent(Integer id, Integer eventId) throws UserNotFoundException, EventNotFoundException {
         User user = userDao.findById(id);
         Events event = eventsDao.findById(id);
+
+        if(user == null){
+            throw new UserNotFoundException();
+        }
+
+        if(event == null || !event.getUser().getId().equals(id)){
+            throw new EventNotFoundException();
+        }
 
         user.removeEvents(event);
         userDao.saveOrUpdate(user);

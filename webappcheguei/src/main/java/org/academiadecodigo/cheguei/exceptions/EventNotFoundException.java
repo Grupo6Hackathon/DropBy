@@ -4,7 +4,7 @@ import org.academiadecodigo.cheguei.errors.ErrorMessage;
 
 public class EventNotFoundException extends DropByException {
 
-    public EventNotFoundException(String message) {
+    public EventNotFoundException() {
         super(ErrorMessage.EVENT_NOT_FOUND);
     }
 
