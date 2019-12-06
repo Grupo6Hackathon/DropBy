@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -6,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>You're welcome to DROPBY!</title>
-    <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="icon" type="image/png" href="">
 </head>
 
@@ -33,37 +32,62 @@
                 <div id="landing-hold">
                     <div id="calling">
                         <h2>WELCOME TO DROPBY!</h2>
-                        <p>EVERYONE IS CALLING FOR EVERYONE. TIME TO JOIN THEM.</p>
+                        <p>EVERYONE IS CALLING FOR EVERYONE. TIME TO JOIN US.</p>
                     </div>
-                    <div id="join-button">
-                        <a th:if="${session.user}" th:href="@{/events}"><h3>CREATE EVENT</h3></a>
-                        <a th:unless="${session.user}"  th:href="@{/login}"><h3>JOIN</h3></a>
-                    </div>
+                    <a href="">
+                        <div id="join-button">
+                            <a th:if="${session.user}" th:href="@{/events/register}"><h3>CREATE EVENT</h3></a>
+                            <a th:unless="${session.user}"  th:href="@{/login}"><h3>JOIN</h3></a>
+                        </div>
+                    </a>
                 </div>
             </div>
-
-            <div id="hottest">
-                <div id="hottest-wrapper">
-                    <div id="hottest-events">
-                        <div class="event"></div>
-                        <div class="event"></div>
-                        <div class="event"></div>
-                        <div class="event"></div>
-                        <div class="event"></div>
-                    </div>
-                </div>
-            </div>
-
         </section>
 
-        <div id="types-wrapper">
+        <div id="types-wrapper" th:unless="${session.user}">
             <div id="types">
-                <div class="type"></div>
-                <div class="type"></div>
-                <div class="type"></div>
-                <div class="type"></div>
-                <div class="type"></div>
-                <div class="type"></div>
+                <div id="type1">
+                    <div class="blackbox">
+                        <p>CLUBING</p>
+                    </div>
+                </div>
+                <div id="type2">
+                    <div class="blackbox">
+                        <p>HIKING</p>
+                    </div>
+                </div>
+                <div id="type3">
+                    <div class="blackbox">
+                        <p>SOCIALIZING</p>
+                    </div>
+                </div>
+                <div id="type4">
+                    <div class="blackbox">
+                        <p>SPORTS</p>
+                    </div>
+                </div>
+                <div id="type5">
+                    <div class="blackbox">
+                        <p>SIGHTSEEING</p>
+                    </div>
+                </div>
+                <div id="type6">
+                    <div class="blackbox">
+                        <p>MAKE YOUR OWN!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="types-wrapper" th:if="${session.user}" th:each="event : ${events}">
+
+            <div id="types">
+                <div id="type1">
+                    <div class="blackbox">
+                        <p th:text="${event.eventTitle}"></p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -72,16 +96,14 @@
                 <ul>
                     <li>About</li>
                     <li>F.A.Q.</li>
-                    <li>Support</li>
-                    <li>Whatever</li>
-                    <li>Whatever</li>
+                    <li>Contact</li>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
                 </ul>
             </div>
-            <div id="footerRight"><small>Copyright 2019 &copy  H A C K A T O N</small></div>
+            <div id="footerRight"><small>Copyright 2019 &copy H A C K A T O N</small></div>
         </footer>
-
     </div>
-
 </body>
 
 </html

@@ -6,12 +6,8 @@ import org.academiadecodigo.cheguei.persistence.model.User;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "event_type")
-public abstract class Events extends AbstractModel {
-
-    @ManyToOne
-    private User user;
+@Table(name = "event")
+public class Events extends AbstractModel {
 
     private String address;
     private String eventTitle;
@@ -19,13 +15,6 @@ public abstract class Events extends AbstractModel {
     private String description;
     private String maximumCapacity;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getAddress() {
         return address;
@@ -67,17 +56,14 @@ public abstract class Events extends AbstractModel {
         this.maximumCapacity = maximumCapacity;
     }
 
-    public abstract EventType getEventType();
-
     @Override
     public String toString() {
         return "Events{" +
-                "user=" + user +
-                ", address='" + address + '\'' +
+                "address='" + address + '\'' +
                 ", eventTitle='" + eventTitle + '\'' +
                 ", date='" + date + '\'' +
                 ", description='" + description + '\'' +
-                ", maximumCapacity=" + maximumCapacity +
+                ", maximumCapacity='" + maximumCapacity + '\'' +
                 '}';
     }
 }

@@ -48,10 +48,8 @@
             <input type="text" placeholder="phone number" th:field="*{phone}">
             <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
             <br><br>
-            <button type="submit">Submit</button>
-            <button type="reset" name="action" value="cancel">Reset</button>
-            <a th:href="@{/login}">Go Back</a>
 
+            <input type="submit" name="action" value="SUBMIT">
         </form>
 
     </div>

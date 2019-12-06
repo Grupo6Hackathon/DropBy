@@ -18,7 +18,6 @@ public class EventsToEventsDto extends AbstractConverter<Events, EventsDto> {
         eventsDto.setDescription(events.getDescription());
         eventsDto.setEventTitle(events.getEventTitle());
         eventsDto.setMaximumCapacity(events.getMaximumCapacity());
-        eventsDto.setEventType(events.getEventType());
 
         return eventsDto;
     }

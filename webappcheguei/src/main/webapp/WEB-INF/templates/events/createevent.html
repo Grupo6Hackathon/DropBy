@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+
+    <style>
+        #textbox {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        input::placeholder {
+            font-size:0.9rem;
+        }
+
+        input[type="text"] {
+            border: none;
+            background-color: #F2F2F2;
+            width: 80%;
+            padding: 1rem;
+        }
+
+        input[type="password"] {
+            border: none;
+            background-color: #F2F2F2;
+            width: 80%;
+            padding: 1rem;
+        }
+
+        input[type="submit"] {
+            text-align: center;
+            border:none;
+            background-color: #FBFF4A;
+            width: 80%;
+            padding: 1rem;
+        }
+
+        a:link, a:visited, a:hover, a:active {
+            color: black;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        input:focus {
+            outline: none !important;
+        }
+
+        .title {
+            padding: 1rem 0;
+        }
+
+        /* Change the white to any color ;) */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active  {
+            -webkit-box-shadow: 0 0 0 30px #F2F2F2 inset !important;
+        }
+
+        body {
+            background-color: #222222;
+        }
+        section {
+            background-color: white;
+            width: 40%;
+            margin: auto;
+            font-family: sans-serif;
+            box-shadow: 2px 2px 8px 2px #888888;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "footerLeft footerRight";
+        }
+
+    </style>
+</head>
+
+<body>
+
+<section>
+
+    <br>
+
+    <div id="textbox">
+        <h3 class="title">Register New Event</h3>
+
+        <form th:object="${event}" th:action="@{/events/register}" method="post">
+
+            <input type="text" placeholder="Event Title" th:field="*{eventTitle}">
+            <span></span>
+            <span th:if="${#fields.hasErrors('eventTitle')}" th:errors="*{eventTitle}"></span>
+            <br><br>
+            <input type="text" placeholder="Description" th:field="*{description}">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            <br><br>
+            <input type="text" placeholder="Location" th:field="*{address}">
+            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+            <br><br>
+            <input type="text" placeholder="Date" th:field="*{date}">
+            <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+            <br><br>
+            <input type="text" placeholder="Maximum Capacity" th:field="*{maximumCapacity}">
+            <span th:if="${#fields.hasErrors('maximumCapacity')}" th:errors="*{maximumCapacity}"></span>
+            <br><br>
+
+            <input type="submit" name="action" value="CREATE EVENT">
+        </form>
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

@@ -16,9 +16,9 @@ public interface UserService {
 
     List<User> list();
 
-    Events addEvent(Integer id, Events event);
+    /*Events addEvent(Integer id, Events event);
 
-    void deleteEvent(Integer id, Integer eventId);
+    void deleteEvent(Integer id, Integer eventId);*/
 
     boolean checkPassword(UserDto userDto);
 

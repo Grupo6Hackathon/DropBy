@@ -1,15 +1,19 @@
 package org.academiadecodigo.cheguei.controller.web;
 
 import org.academiadecodigo.cheguei.command.UserDto;
+import org.academiadecodigo.cheguei.converters.EventsDtoToEvents;
+import org.academiadecodigo.cheguei.converters.EventsToEventsDto;
 import org.academiadecodigo.cheguei.converters.UserDtoToUser;
 import org.academiadecodigo.cheguei.converters.UserToUserDto;
 import org.academiadecodigo.cheguei.persistence.model.User;
+import org.academiadecodigo.cheguei.services.EventsService;
 import org.academiadecodigo.cheguei.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -22,9 +26,26 @@ import javax.validation.Valid;
 public class WebController {
 
     private UserService userService;
-
     private UserDtoToUser userDtoToUser;
     private UserToUserDto userToUserDto;
+    private EventsService eventsService;
+    private EventsDtoToEvents eventsDtoToEvents;
+    private EventsToEventsDto eventsToEventsDto;
+
+    @Autowired
+    public void setEventsToEventsDto(EventsToEventsDto eventsToEventsDto) {
+        this.eventsToEventsDto = eventsToEventsDto;
+    }
+
+    @Autowired
+    public void setEventsDtoToEvents(EventsDtoToEvents eventsDtoToEvents) {
+        this.eventsDtoToEvents = eventsDtoToEvents;
+    }
+
+    @Autowired
+    public void setEventsService(EventsService eventsService) {
+        this.eventsService = eventsService;
+    }
 
     @Autowired
     public void setUserDtoToUser(UserDtoToUser userDtoToUser) {
@@ -42,7 +63,8 @@ public class WebController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/index")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("events", eventsToEventsDto.convert(eventsService.findAll()));
         return "index/index";
     }
 
@@ -67,7 +89,6 @@ public class WebController {
 
         }
 
-        System.out.println("USER DOES NOT EXIST!");
         return "redirect:/login";
     }
 
@@ -80,7 +101,7 @@ public class WebController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/register")
-    public String register2(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String register(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
 
         if (bindingResult.hasErrors()) {

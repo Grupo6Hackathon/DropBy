@@ -1,0 +1,61 @@
+#section-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "section-left section-right";
+    max-width: 1100px;
+    margin: auto;
+    text-align: left;
+    padding: 1rem;
+}
+
+#section-nogrid {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+#section-left {}
+
+#section-right {}
+
+.inputbox {
+    width: 30rem;
+    height: 2.2rem;
+    font-size: 1.3em;
+}
+
+.biginputbox {
+    width: 30rem;
+    height: 20rem;
+    font-size: 1.3em;
+}
+
+.boxes {
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin: 1rem 1rem 0 0;
+}
+
+.boxes>h3 {
+    padding-bottom: 1rem;
+}
+
+#attendees-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "attendee attendee attendee attendee attendee";
+    grid-gap: 0.5rem;
+}
+
+.attendee {
+    margin: auto;
+    height: 6rem;
+    width: 6rem;
+    background-color: red;
+}
+
+#map {
+    margin-top: 1rem;
+    background-color: red;
+    height: 15rem;
+}

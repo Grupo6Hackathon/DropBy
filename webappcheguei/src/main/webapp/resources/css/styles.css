@@ -1,4 +1,5 @@
 body {
+    background-image: url("dropby-bg.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-color: #222222;
@@ -7,6 +8,11 @@ body {
 #wrapper {
     width: 100%;
     margin: auto;
+}
+
+.formbutton {
+    font-size: 1.3em;
+    padding: 1rem;
 }
 
 /* HEADER */
@@ -64,11 +70,11 @@ a:active {
 section {
     padding: 1rem;
     text-align: center;
-    height: 100vh;
+    height: 75vh;
 }
 
 #landing {
-    padding: 13% 0 0 0;
+    padding: 16% 0 0 0;
 }
 
 #landing-hold {
@@ -147,7 +153,7 @@ section {
 
 #types-wrapper {
     padding: 3rem 0;
-    background-color: whitesmoke;
+    background-color: #fafe4a;
     margin: auto;
     max-width: 100%;
 }
@@ -159,13 +165,72 @@ section {
     grid-gap: 2rem;
     padding: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
+        color: whitesmoke;
+        text-align: center;
 }
 
-.type {
+.blackbox {
+    background-color: #181818;
+}
+
+#types > div > div > p {
+    margin-top: 48%;
+        text-shadow: -2px 1px rgba(black, 0.1),
+        -2px 1px rgba(black, 0.1);
+}
+
+#type1 {
     margin: auto;
-    background-color: #222222;
+    background-color: #181818;
     height: 15rem;
     width: 15rem;
+    background-image: url("1.jpg");
+    background-size: 200%;
+}
+
+#type2 {
+    margin: auto;
+    background-color: #181818;
+    height: 15rem;
+    width: 15rem;
+    background-image: url("2.jpg");
+    background-size: 200%;
+}
+
+#type3 {
+    margin: auto;
+    background-color: #181818;
+    height: 15rem;
+    width: 15rem;
+    background-image: url("3.jpg");
+    background-size: 200%;
+}
+
+#type4 {
+    margin: auto;
+    background-color: #181818;
+    height: 15rem;
+    width: 15rem;
+    background-image: url("4.jpg");
+    background-size: 200%;
+}
+
+#type5 {
+    margin: auto;
+    background-color: #181818;
+    height: 15rem;
+    width: 15rem;
+    background-image: url("5.jpg");
+    background-size: 150%;
+}
+
+#type6 {
+    margin: auto;
+    background-color: #181818;
+    height: 15rem;
+    width: 15rem;
+    background-image: url("6.jpg");
+    background-size: 100%;
 }
 
 /* HEADER */
@@ -176,7 +241,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     padding: 1rem;
     color: whitesmoke;
-    background-color: #222222;
+    background-color: #181818;
 }
 
 #footerLeft {
@@ -197,4 +262,17 @@ footer {
 #footerLeft>ul>li {
     display: inline;
     padding: 2rem 1rem;
+}
+
+/* EVENT IMAGES */
+
+.eventmain {
+    margin: auto;
+    background-color: whitesmoke;
+    height: 12rem;
+    width: 16rem;
+    background-image: url("placeholder-party.jpg");
+    background-size: 200%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

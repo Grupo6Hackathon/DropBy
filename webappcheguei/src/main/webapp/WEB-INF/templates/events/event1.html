@@ -1,0 +1,399 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You're welcome to DROPBY!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="">
+
+    <style>
+        body {
+            background-image: url("../../../resources/css/Halloween.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #222222;
+        }
+
+        #wrapper {
+            width: 100%;
+            margin: auto;
+        }
+
+        .formbutton {
+            font-size: 1.3em;
+            padding: 1rem;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: #fbff4a;
+            color: black;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: "headerLeft headerMid headerRight";
+        }
+
+        #headerLeft {
+            padding: 0.7rem 2rem 0.5rem 2rem;
+        }
+
+        #headerLeft>h1 {
+            font-weight: bold;
+            padding: 0.5rem;
+        }
+
+        #headerMid {}
+
+        #headerRight {
+            display: inline;
+            text-align: right;
+            padding: 1.5rem 2rem 0.5rem 2rem;
+        }
+
+        #headerRight>ul>li {
+            display: inline-block;
+            color: black;
+            padding: 0 1rem;
+        }
+
+        a:hover,
+        a:visited,
+        a:link,
+        a:active {
+            text-decoration: none;
+        }
+
+        #headerRight>a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+
+        #logo {}
+
+        /* SECTION */
+
+        section {
+            padding: 1rem;
+            text-align: center;
+            height: 75vh;
+        }
+
+        #landing {
+            padding: 16% 0 0 0;
+        }
+
+        #landing-hold {
+            height: 23rem
+        }
+
+        #join-button {
+            color: whitesmoke;
+            background-color: black;
+            padding: 1rem;
+            margin: auto;
+            width: 20%;
+            box-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #join-button>h3 {
+            color: whitesmoke;
+            font-weight: bold;
+        }
+
+        #join-button>a:link,
+        #join-button>a:visited,
+        #join-button>a:hover,
+        #join-button>a:active {
+            color: whitesmoke;
+            text-decoration: none;
+        }
+
+        #calling {
+            color: #fafe4a;
+            text-align: center;
+            padding: 2rem;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #calling>p {
+            padding: 1rem;
+            font-size: 1.5em;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #calling>h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* HOTTEST */
+
+        #hottest-wrapper {
+            height: 37vh;
+            margin: auto;
+            max-width: 1400px;
+        }
+
+        #hottest {}
+
+        #hottest-events {
+            display: grid;
+            grid-gap: 1rem;
+            padding: 1rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "headerLeft headerMid headerRight";
+        }
+
+        .event {
+            margin: auto;
+            background-color: whitesmoke;
+            height: 15rem;
+            width: 16rem;
+        }
+
+        /* TYPES */
+
+        #types-wrapper {
+            padding: 3rem 0;
+            background-color: #fafe4a;
+            max-width: 100%;
+            padding-left: 50px;
+        }
+
+        #types {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-gap: 2rem;
+            padding: 1rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            color: black;
+            text-align: center;
+        }
+
+        .blackbox {
+            background-color: #181818;
+        }
+
+        #types > div > div > p {
+            margin-top: 48%;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #type1 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("1.jpg");
+            background-size: 200%;
+        }
+
+        #type2 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("2.jpg");
+            background-size: 200%;
+        }
+
+        #type3 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("3.jpg");
+            background-size: 200%;
+        }
+
+        #type4 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("4.jpg");
+            background-size: 200%;
+        }
+
+        #type5 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("5.jpg");
+            background-size: 150%;
+        }
+
+        #type6 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("6.jpg");
+            background-size: 100%;
+        }
+
+        /* HEADER */
+
+        footer {
+            height: 15rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 1rem;
+            color: whitesmoke;
+            background-color: #181818;
+        }
+
+        #footerLeft {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        #footerRight {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        #footerRight>ul>li {
+            display: inline;
+            padding: 2rem 1rem;
+        }
+
+        #footerLeft>ul>li {
+            display: inline;
+            padding: 2rem 1rem;
+        }
+
+        /* EVENT IMAGES */
+
+        .eventmain {
+            margin: auto;
+            background-color: whitesmoke;
+            height: 12rem;
+            width: 16rem;
+            background-image: url("../../../resources/css/Halloween.jpg");
+            background-size: 200%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ol,
+        ul {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #titles {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #parag {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+
+    <header>
+        <div id="headerLeft">
+            <h1>DROPBY</h1>
+        </div>
+        <div id="headerMid"></div>
+        <div id="headerRight">
+            <ul>
+                <li><a th:if="${session.user}" th:text="Welcome + ' ' + ${session.user.username}"></a></li>
+                <li><a th:unless="${session.user}" th:href="@{/login}">Login</a></li>
+                <li><a th:unless="${session.user}" th:href="@{/register}">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section>
+        <div id="landing">
+            <div id="landing-hold">
+                <div id="calling">
+                    <h2>WELCOME TO </h2>
+                    <p>JOIN US AT </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="types-wrapper" th:each="event: ${events}">
+
+            <p id="titles">Event Title</p>
+            <p id="parag" th:text="${events.eventTitle}"></p>
+            <p id="titles">Description</p>
+            <p id="parag" th:text="${events.description}"></p>
+
+            <p id="titles">Location</p>
+            <p id="parag" th:text="${events.address}"></p>
+            <p id="titles">Date</p>
+            <p id="parag" th:text="${events.date}"></p>
+            <p id="titles">Number Max of Dropers</p>
+            <p id="parag" th:text="${events.maximumCapacity}"></p>
+    </div>
+
+    <footer>
+        <div id="footerLeft">
+            <ul>
+                <li>About</li>
+                <li>F.A.Q.</li>
+                <li>Contact</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+            </ul>
+        </div>
+        <div id="footerRight"><small>Copyright 2019 &copy H A C K A T O N</small></div>
+    </footer>
+</div>
+</body>
+
+</html

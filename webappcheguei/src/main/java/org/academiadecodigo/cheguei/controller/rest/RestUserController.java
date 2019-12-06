@@ -84,7 +84,7 @@ public class RestUserController {
     }
 
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     public ResponseEntity<UserDto> deleteUser(@PathVariable Integer id){
 
         userService.delete(id);

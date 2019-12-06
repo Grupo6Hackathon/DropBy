@@ -1,6 +1,5 @@
 package org.academiadecodigo.cheguei.command;
 
-import org.academiadecodigo.cheguei.persistence.model.Events.EventType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
@@ -8,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class EventsDto {
+
+    private Integer id;
 
     @NotNull(message = "Address is mandatory")
     @NotBlank(message = "Address is mandatory")
@@ -20,6 +21,9 @@ public class EventsDto {
     private String eventTitle;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotNull(message = "Date is mandatory")
+    @NotBlank(message = "Date is mandatory")
+    @Size(min = 10)
     private String date;
 
     @NotNull(message = "Description is mandatory")
@@ -31,15 +35,8 @@ public class EventsDto {
     @NotBlank(message = "Maximum capacity is mandatory")
     private String maximumCapacity;
 
-    @NotNull(message = "Event type is mandatory")
-    private EventType eventType;
-
-    public EventType getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(EventType eventType) {
-        this.eventType = eventType;
+    public Integer getId() {
+        return id;
     }
 
     public String getAddress() {
@@ -81,4 +78,6 @@ public class EventsDto {
     public void setMaximumCapacity(String maximumCapacity) {
         this.maximumCapacity = maximumCapacity;
     }
+
+
 }

@@ -3,7 +3,6 @@ package org.academiadecodigo.cheguei.persistence.model;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,13 +16,6 @@ public class User extends AbstractModel {
     private String email;
     private String password;
     private String phone;
-
-    @OneToMany(cascade = {CascadeType.ALL},
-                orphanRemoval = true,
-                mappedBy = "user",
-                fetch = FetchType.EAGER
-    )
-    private List<Events> events = new ArrayList<>();
 
     public String getFirstName() {
         return firstName;
@@ -81,21 +73,6 @@ public class User extends AbstractModel {
         this.phone = phone;
     }
 
-
-    public List<Events> getEvents() {
-        return events;
-    }
-
-    public void addEvents(Events event) {
-        events.add(event);
-        event.setUser(this);
-    }
-
-    public void removeEvents(Events event) {
-        events.remove(event);
-        event.setUser(null);
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -105,7 +82,7 @@ public class User extends AbstractModel {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", events=" + events +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

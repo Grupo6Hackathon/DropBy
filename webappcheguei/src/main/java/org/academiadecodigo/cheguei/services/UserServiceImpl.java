@@ -53,36 +53,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean checkUsername(UserDto userDto) {
-
-        System.out.println("fora do if do username");
-
         for(User user: userDao.findAll()) {
-            System.out.println("dentro do for, fora do if");
             if(user.getUsername().equals(userDto.getUsername())) {
-                System.out.println("username é igual");
                 return true;
             }
         }
-        System.out.println("username é diferente");
         return false;
     }
 
     @Override
     public boolean checkPassword(UserDto userDto) {
-
-        System.out.println("fora do if da password");
         for (User user: userDao.findAll()) {
             if(user.getPassword().equals(userDto.getPassword())) {
-                System.out.println("password é igual");
                 return true;
             }
         }
-        System.out.println("password é diferente");
         return false;
     }
 
 
-    @Transactional
+    /*@Transactional
     @Override
     public Events addEvent(Integer id, Events event) {
 
@@ -92,9 +82,9 @@ public class UserServiceImpl implements UserService {
         userDao.saveOrUpdate(user);
 
         return user.getEvents().get(user.getEvents().size() - 1);
-    }
+    }*/
 
-    @Transactional
+    /*@Transactional
     @Override
     public void deleteEvent(Integer id, Integer eventId) {
         User user = userDao.findById(id);
@@ -102,5 +92,5 @@ public class UserServiceImpl implements UserService {
 
         user.removeEvents(event);
         userDao.saveOrUpdate(user);
-    }
+    }*/
 }
