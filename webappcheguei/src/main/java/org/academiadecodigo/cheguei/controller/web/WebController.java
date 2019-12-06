@@ -86,7 +86,6 @@ public class WebController {
                     return "redirect:/index";
                 }
             }
-
         }
 
         return "redirect:/login";
@@ -112,6 +111,12 @@ public class WebController {
 
         redirectAttributes.addFlashAttribute("lastAction", user.getFirstName() + " " + user.getLastName() + " was created with success.");
         return "redirect:/login";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/logout")
+    public String logout(HttpSession httpSession) {
+        httpSession.invalidate();
+        return "redirect:/index";
     }
 
 }
