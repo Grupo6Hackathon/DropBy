@@ -91,7 +91,7 @@
     <div id="textbox">
         <h3 class="title">Register New Event</h3>
 
-        <form th:object="${event}" th:action="@{/events/register}" method="post">
+        <form th:object="${event}" th:action="@{/events/register}" method="post" autocomplete="off">
 
             <input type="text" placeholder="Event Title" th:field="*{eventTitle}">
             <span></span>

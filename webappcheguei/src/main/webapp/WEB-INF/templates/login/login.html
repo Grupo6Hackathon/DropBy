@@ -17,7 +17,7 @@
     <div id="textbox">
         <h3 class="title">Login</h3>
 
-        <form th:object="${userMock}" th:action="@{/loginmock}">
+        <form th:object="${userMock}" th:action="@{/loginmock}" autocomplete="off">
             <input type="text" placeholder="username" th:field="*{username}">
             <br><br>
             <input type="password" placeholder="password" th:field="*{password}">
