@@ -20,6 +20,11 @@ We started by exploring our options with mock-up design and UML schematics. We c
 Java, Linux, Mac OS, Spring MVC, Hibernate, MySQL, Tomcat, Maven, Git, Scrum, HTML5, CSS3, Thymeleaf.
 IntelliJ, Visual Studio Code.
 
+## Connect to our application
+
+In order to connect to our application, use maven $ mvn tomcat7:deploy to deploy the project to your local tomcat service. Tomcat should be configured for localhost:8080 - if not, please update the project files.
+Open the http://localhost:8080/dropby/index in any browser and you should be ready to go.
+
 ## Authors
 
 * **Carlos Cardoso** - [Carlosarc1981](https://github.com/Carlosarc1981)
