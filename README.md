@@ -22,11 +22,11 @@ IntelliJ, Visual Studio Code.
 
 ## Authors
 
-**Carlos Cardoso** - [Carlosarc1981](https://github.com/Carlosarc1981)
-**Pedro Miranda** - [pedrotrigomiranda](https://github.com/pedrotrigomiranda)
-**Pedro Sousa** - [pdrsousa](https://github.com/pdrsousa)
-**Pedro Supico** - [pedrosupico](https://gitlab.com/pedrosupico)
-**Ricardo Dias** - [RicardoSnaw](https://github.com/RicardoSnaw)
+* **Carlos Cardoso** - [Carlosarc1981](https://github.com/Carlosarc1981)
+* **Pedro Miranda** - [pedrotrigomiranda](https://github.com/pedrotrigomiranda)
+* **Pedro Sousa** - [pdrsousa](https://github.com/pdrsousa)
+* **Pedro Supico** - [pedrosupico](https://gitlab.com/pedrosupico)
+* **Ricardo Dias** - [RicardoSnaw](https://github.com/RicardoSnaw)
 
 
 # Thank you!
