@@ -22,7 +22,7 @@ IntelliJ, Visual Studio Code.
 
 ## Connect to our application
 
-In order to connect to our application, use maven $ mvn tomcat7:deploy to deploy the project to your local tomcat service. Tomcat should be configured for localhost:8080 - if not, please update the project files.
+In order to connect to our application, use mave `$ mvn tomcat7:deploy` to deploy the project to your local tomcat service. Tomcat should be configured for localhost:8080 - if not, please update the project files.
 Open the http://localhost:8080/dropby/index in any browser and you should be ready to go.
 
 ## Authors
