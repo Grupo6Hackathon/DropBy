@@ -3,6 +3,7 @@ package org.academiadecodigo.cheguei.controller.web;
 import org.academiadecodigo.cheguei.command.EventsDto;
 import org.academiadecodigo.cheguei.converters.EventsDtoToEvents;
 import org.academiadecodigo.cheguei.converters.EventsToEventsDto;
+import org.academiadecodigo.cheguei.exceptions.EventNotFoundException;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
 import org.academiadecodigo.cheguei.services.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class EventsWebController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    public String event(@PathVariable Integer id, Model model) {
+    public String event(@PathVariable Integer id, Model model) throws EventNotFoundException {
         model.addAttribute("events", eventsToEventsDto.convert(eventsService.getEvent(id)));
         return "events/event1";
     }

@@ -1,6 +1,7 @@
 package org.academiadecodigo.cheguei.services;
 
 import org.academiadecodigo.cheguei.command.UserDto;
+import org.academiadecodigo.cheguei.exceptions.UserNotFoundException;
 import org.academiadecodigo.cheguei.persistence.dao.EventsDao;
 import org.academiadecodigo.cheguei.persistence.dao.UserDao;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
@@ -40,10 +41,15 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void delete(Integer id) {
+    public void delete(Integer id) throws UserNotFoundException {
         User user = userDao.findById(id);
 
+        if(user == null){
+            throw new UserNotFoundException();
+        }
+
         userDao.delete(id);
+
     }
 
     @Override

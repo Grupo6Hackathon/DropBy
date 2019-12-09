@@ -1,5 +1,7 @@
 package org.academiadecodigo.cheguei.services;
 
+import org.academiadecodigo.cheguei.exceptions.EventNotFoundException;
+import org.academiadecodigo.cheguei.exceptions.UserNotFoundException;
 import org.academiadecodigo.cheguei.persistence.dao.EventsDao;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +21,15 @@ public class EventsServiceImpl implements EventsService {
     }
 
     @Override
-    public Events getEvent(Integer id) {
-        return eventsDao.findById(id);
+    public Events getEvent(Integer id) throws EventNotFoundException {
+
+        Events event = eventsDao.findById(id);
+
+        if(event == null){
+            throw new EventNotFoundException();
+        }
+
+        return event;
     }
 
     @Override
