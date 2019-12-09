@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/cssgrid.css">
+    <title>Register</title>
+</head>
+
+<body>
+
+<section>
+
+    <div id="textbox">
+        <h3 class="title">Login</h3>
+
+        <form th:object="${userMock}" th:action="@{/loginmock}" autocomplete="off">
+            <input type="text" placeholder="username" th:field="*{username}">
+            <br><br>
+            <input type="password" placeholder="password" th:field="*{password}">
+            <br><br>
+            <input type="submit" name="action" value="LOGIN">
+        </form>
+
+        <p><a th:href="@{/register}">Not registered? Register now</a></p>
+        <p><a href="mailto:support@dropby.com" target="_top">Forgot your password?</a></p>
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

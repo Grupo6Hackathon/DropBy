@@ -25,7 +25,7 @@
         <property name="entityManagerFactory" ref="emFactory"/>
     </bean>
 
-    <!--<import resource="./persistence/h2.xml"/>-->
     <import resource="./persistence/mysql.xml"/>
+    <import resource="presentation.xml"/>
 
 </beans>

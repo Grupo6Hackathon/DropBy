@@ -1,0 +1,516 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You're welcome to DROPBY!</title>
+    <link rel="icon" type="image/png" href="">
+
+    <style>
+
+        body {
+            background-color: #222222;
+        }
+        section {
+            background-color: white;
+            width: 40%;
+            margin: auto;
+            font-family: sans-serif;
+            box-shadow: 2px 2px 8px 2px #888888;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "footerLeft footerRight";
+        }
+
+        #section-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas: "section-left section-right";
+            max-width: 1100px;
+            margin: auto;
+            text-align: left;
+            padding: 1rem;
+        }
+
+        #section-nogrid {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #section-left {}
+
+        #section-right {}
+
+        .inputbox {
+            width: 30rem;
+            height: 2.2rem;
+            font-size: 1.3em;
+        }
+
+        .biginputbox {
+            width: 30rem;
+            height: 20rem;
+            font-size: 1.3em;
+        }
+
+        .boxes {
+            background-color: whitesmoke;
+            padding: 1rem;
+            margin: 1rem 1rem 0 0;
+        }
+
+        .boxes>h3 {
+            padding-bottom: 1rem;
+        }
+
+        #attendees-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "attendee attendee attendee attendee attendee";
+            grid-gap: 0.5rem;
+        }
+
+        .attendee {
+            margin: auto;
+            height: 6rem;
+            width: 6rem;
+            background-color: red;
+        }
+
+        #map {
+            margin-top: 1rem;
+            background-color: red;
+            height: 15rem;
+        }
+
+        #section-wrapper {
+            margin: auto;
+            height: 500px;
+            max-width: 1100px;
+            text-align: left;
+            padding: 1rem;
+        }
+
+        #topbar {
+            background-color: whitesmoke;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #search-box {
+        }
+
+        #top-data {
+            display: inline-block;
+            text-align: right;
+        }
+
+        #hotevents {
+            margin-top: 1rem;
+            background-color: whitesmoke;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 1rem;
+        }
+
+        .event1 {
+            background-image: url("events/abandoned.jpg");
+            max-height: 100%;
+        }
+
+        .hotevent {
+            margin: auto;
+            height: 10rem;
+            width: 12rem;
+            background-color: red;
+        }
+
+        #otherevents {
+            margin-top: 1rem;
+            background-color: whitesmoke;
+            padding: 1rem;
+        }
+
+        #othercities {
+            margin-top: 1rem;
+            background-color: whitesmoke;
+            padding: 1rem;
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ol,
+        ul {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        body {
+            background-image: url("dropby-bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #222222;
+        }
+
+        #wrapper {
+            width: 100%;
+            margin: auto;
+        }
+
+        .formbutton {
+            font-size: 1.3em;
+            padding: 1rem;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: #fbff4a;
+            color: black;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: "headerLeft headerMid headerRight";
+        }
+
+        #headerLeft {
+            padding: 0.7rem 2rem 0.5rem 2rem;
+        }
+
+        #headerLeft>h1 {
+            font-weight: bold;
+            padding: 0.5rem;
+        }
+
+        #headerMid {}
+
+        #headerRight {
+            display: inline;
+            text-align: right;
+            padding: 1.5rem 2rem 0.5rem 2rem;
+        }
+
+        #headerRight>ul>li {
+            display: inline-block;
+            color: black;
+            padding: 0 1rem;
+        }
+
+        a:hover,
+        a:visited,
+        a:link,
+        a:active {
+            text-decoration: none;
+        }
+
+        #headerRight>a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+
+        #logo {}
+
+        /* SECTION */
+
+        section {
+            padding: 1rem;
+            text-align: center;
+            height: 100vh;
+        }
+
+        #landing {
+            padding: 16% 0 0 0;
+        }
+
+        #landing-hold {
+            height: 23rem
+        }
+
+        #join-button {
+            color: whitesmoke;
+            background-color: black;
+            padding: 1rem;
+            margin: auto;
+            width: 20%;
+            box-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #join-button>h3 {
+            color: whitesmoke;
+            font-weight: bold;
+        }
+
+        #join-button>a:link,
+        #join-button>a:visited,
+        #join-button>a:hover,
+        #join-button>a:active {
+            color: whitesmoke;
+            text-decoration: none;
+        }
+
+        #calling {
+            color: #fafe4a;
+            text-align: center;
+            padding: 2rem;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #calling>p {
+            padding: 1rem;
+            font-size: 1.5em;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #calling>h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* HOTTEST */
+
+        #hottest-wrapper {
+            height: 37vh;
+            margin: auto;
+            max-width: 1400px;
+        }
+
+        #hottest {}
+
+        #hottest-events {
+            display: grid;
+            grid-gap: 1rem;
+            padding: 1rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: "headerLeft headerMid headerRight";
+        }
+
+        .event {
+            margin: auto;
+            background-color: whitesmoke;
+            height: 15rem;
+            width: 16rem;
+        }
+
+        /* TYPES */
+
+        #types-wrapper {
+            padding: 3rem 0;
+            background-color: #fafe4a;
+            margin: auto;
+            max-width: 100%;
+        }
+
+        #types {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-gap: 2rem;
+            padding: 1rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        .blackbox {
+            background-color: #181818;
+        }
+
+        #types > div > div > p {
+            margin-top: 48%;
+            text-shadow: -2px 1px rgba(black, 0.1),
+            -2px 1px rgba(black, 0.1);
+        }
+
+        #type1 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("1.jpg");
+            background-size: 200%;
+        }
+
+        #type2 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("2.jpg");
+            background-size: 200%;
+        }
+
+        #type3 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("3.jpg");
+            background-size: 200%;
+        }
+
+        #type4 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("4.jpg");
+            background-size: 200%;
+        }
+
+        #type5 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("5.jpg");
+            background-size: 150%;
+        }
+
+        #type6 {
+            margin: auto;
+            background-color: #181818;
+            height: 15rem;
+            width: 15rem;
+            background-image: url("6.jpg");
+            background-size: 100%;
+        }
+
+        /* HEADER */
+
+        footer {
+            height: 15rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 1rem;
+            color: whitesmoke;
+            background-color: #181818;
+        }
+
+        #footerLeft {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        #footerRight {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        #footerRight>ul>li {
+            display: inline;
+            padding: 2rem 1rem;
+        }
+
+        #footerLeft>ul>li {
+            display: inline;
+            padding: 2rem 1rem;
+        }
+
+        /* EVENT IMAGES */
+
+        .eventmain {
+            margin: auto;
+            background-color: whitesmoke;
+            height: 12rem;
+            width: 16rem;
+            background-image: url("placeholder-party.jpg");
+            background-size: 200%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <header>
+            <div id="headerLeft">
+                <a th:href="@{/index}"><h1>DROPBY</h1></a>
+            </div>
+            <div id="headerMid"></div>
+            <div id="headerRight">
+                <ul>
+                    <li><a href="">Perfil</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section>
+            <div id="section-wrapper">
+                <div id="topbar">
+                    <div id="search-box"><input type="SEARCH"></div>
+                    <div></div>
+                    <div id="top-data">DATA</div>
+                </div>
+                <div id="hotevents">
+                    <div class="hotevent event1"></div>
+                    <div class="hotevent event2"></div>
+                    <div class="hotevent event3"></div>
+                    <div class="hotevent event4"></div>
+                    <div class="hotevent event5"></div>
+                </div>
+                <div id="otherevents">OTHER</div>
+            </div>
+        </section>
+
+        <footer>
+            <div id="footerLeft">
+                <ul>
+                    <li>About</li>
+                    <li>F.A.Q.</li>
+                    <li>Support</li>
+                    <li>Whatever</li>
+                    <li>Whatever</li>
+                </ul>
+            </div>
+            <div id="footerRight"><small>Copyright 2019 &copy H A C K A T O N</small></div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
