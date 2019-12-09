@@ -71,26 +71,4 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-
-    /*@Transactional
-    @Override
-    public Events addEvent(Integer id, Events event) {
-
-        User user = userDao.findById(id);
-
-        user.addEvents(event);
-        userDao.saveOrUpdate(user);
-
-        return user.getEvents().get(user.getEvents().size() - 1);
-    }*/
-
-    /*@Transactional
-    @Override
-    public void deleteEvent(Integer id, Integer eventId) {
-        User user = userDao.findById(id);
-        Events event = eventsDao.findById(id);
-
-        user.removeEvents(event);
-        userDao.saveOrUpdate(user);
-    }*/
 }
