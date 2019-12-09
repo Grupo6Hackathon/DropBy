@@ -62,7 +62,7 @@ public class WebController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/index")
+    @RequestMapping(method = RequestMethod.GET, path = {"/", "", "/index"})
     public String home(Model model) {
         model.addAttribute("events", eventsToEventsDto.convert(eventsService.findAll()));
         return "index/index";

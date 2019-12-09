@@ -1,6 +1,7 @@
 package org.academiadecodigo.cheguei.services;
 
 import org.academiadecodigo.cheguei.command.UserDto;
+import org.academiadecodigo.cheguei.exceptions.UserNotFoundException;
 import org.academiadecodigo.cheguei.persistence.model.Events.Events;
 import org.academiadecodigo.cheguei.persistence.model.User;
 
@@ -12,7 +13,7 @@ public interface UserService {
 
     User save(User user);
 
-    void delete(Integer id);
+    void delete(Integer id) throws UserNotFoundException;
 
     List<User> list();
 
