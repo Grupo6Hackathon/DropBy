@@ -1,4 +1,4 @@
-## DROPY APPLICATION PROJECT
+## DROPBY APPLICATION PROJECT
 
 This was the project we developed for our Hackathon, the final event of our programming bootcamp.
 In 24 hours we had to come up with the idea, execute it and present it to our fellow Code Cadets, Master Coders, IT company representatives and more.
